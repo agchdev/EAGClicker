@@ -52,6 +52,30 @@ body{
     flex-direction: column;
     height: 100vh;
 }
+#galleta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#bgRayos{
+  position: fixed;
+  z-index: -2;
+  top: -43%;
+  left: 1%;
+  rotate: 45deg unset;
+}
+#bgRayos > img:nth-child(1){
+  width: 100%;
+  animation: rotate 17s linear infinite;
+}
+#bgRayos > img:nth-child(2){
+  width: 100%;
+  animation: rotate 10s linear infinite;
+}
+#bgRayos > img:nth-child(3){
+  width: 100%;
+  animation: rotate 13s linear infinite;
+}
 
 h1{
     font-weight: bolder;
@@ -63,10 +87,27 @@ h1{
     justify-content: center;
 }
 
+.flash{
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  animation: flash .5s ease-in-out alternate;
+  pointer-events: none
+}
+
 img{
     max-width: 100%;
     width: 80%;
     animation: zoom-in-zoom-out 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px white);
+    pointer-events: none;
+    user-select: none;       /* Desactiva la selección de la imagen */
+    -webkit-user-drag: none;  /* Evita que la imagen sea arrastrable en navegadores WebKit */
+    -moz-user-select: none;   /* Firefox */
+    -webkit-user-select: none; /* Safari y Chrome */
+    -ms-user-select: none;    /* Internet Explorer/Edge */
 }
 
 .shake{
@@ -75,10 +116,25 @@ img{
 
 #galletaClick{
     position: fixed;
-    font-weight: bolder;
-    border: 1px solid red;
     z-index: 5;
-    
+}
+
+#galletaClick > div > p{
+  position: fixed;
+  -webkit-background-clip: text;
+  text-shadow: 5px 0 black, -5px 0 black, 0 5px black, 0 -5px black,
+              4px 4px black, -4px -4px black, 4px -4px black, -4px 4px black;
+  font-weight: bolder;
+  color: white;
+  font-size: 5rem;
+  animation: shake 1s ease-in-out alternate;
+  animation: pos 6s ease;
+  pointer-events: none;
+  user-select: none;       /* Desactiva la selección de la imagen */
+    -webkit-user-drag: none;  /* Evita que la imagen sea arrastrable en navegadores WebKit */
+    -moz-user-select: none;   /* Firefox */
+    -webkit-user-select: none; /* Safari y Chrome */
+    -ms-user-select: none;    /* Internet Explorer/Edge */
 }
 
 /* ANIMACIONES */
@@ -95,16 +151,48 @@ img{
     }
   }
 
+  @keyframes rotate {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    50% {
+      transform: rotateZ(180deg);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
+    0% {transform: translate(1px, -2px) rotate(-3deg); }
+  10% {transform: translate(1px, 1px) rotate(0deg); }
+  20% { transform: translate(-3px, 0px) rotate(3deg); }
   30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  40% { transform: translate(1px, -1px) rotate(3deg); }
+  50% { transform: translate(-1px, 2px) rotate(-3deg); }
   60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  70% { transform: translate(3px, 1px) rotate(-3deg); }
+  80% { transform: translate(-1px, -1px) rotate(3deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+  100% { transform: translate(-1px, -2px) rotate(-3deg); }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 60%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
+@keyframes pos {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -1000px);
+  }
 }
