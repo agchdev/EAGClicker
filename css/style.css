@@ -73,6 +73,14 @@ img{
     animation: shake .4s ease-in-out alternate;
 }
 
+#galletaClick{
+    position: fixed;
+    font-weight: bolder;
+    border: 1px solid red;
+    z-index: 5;
+    
+}
+
 /* ANIMACIONES */
 
 @keyframes zoom-in-zoom-out {
