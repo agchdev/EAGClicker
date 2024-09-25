@@ -9,7 +9,6 @@ let valorCLick = 1;
 // ELEMENTOS
 const $galleta = $('#galleta');
 const $imagen = $('#imagen');
-const $plusOneText = $('#plusOneText');
 
 // EVENTOS
 $galleta.addEventListener('click', puntuar);
@@ -18,7 +17,7 @@ $galleta.addEventListener('click', puntuar);
 function puntuar(event){
 
     // Actualiza el puntaje 
-    puntos += valorCLick;
+    puntos += valorCLick; //Habrá que crear en un futuro una funcion
 
     // Animación shake
     $galleta.classList.remove('shake');
@@ -27,17 +26,16 @@ function puntuar(event){
         $galleta.classList.remove('shake');
     }, 400);
 
-    // Muestra el texto "+1"
-    const { offsetX, offsetY } = event;
-    console.log(offsetX);
-    console.log(offsetY);
-    $plusOneText.style.top = 200+offsetY;
-    $plusOneText.style.left = 500+offsetX;
-    $plusOneText.classList.remove('hidden');
-    $plusOneText.textContent = `+${valorCLick}`; // Muestra la cantidad de puntos ganados
+    // Creo el div
+    let nuevoP = document.createElement('div');
 
-    // Oculta el texto después de 1 segundo
-    setTimeout(function() {
-        $plusOneText.classList.add('hidden');
-    }, 1000);
+    // Añado el contenido
+    nuevoP.innerHTML = `<p>+${valorCLick}</p>`;
+
+    // Selecciono el contenedor del div
+    $galleta.appendChild(nuevoP);
+
+    setTimeout(function(){
+        contenedor.removeChild(nuevoP);
+    }, 300);
 }

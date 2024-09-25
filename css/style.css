@@ -73,24 +73,6 @@ img{
     animation: shake .4s ease-in-out alternate;
 }
 
-#plusOneText {
-    position: fixed;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 4;
-    transform: translateX(-50%);
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    animation: fadeUp 1s ease-out forwards;
-    background-color: red;
-}
-
-.hidden {
-    display: none;
-}
-
 /* ANIMACIONES */
 
 @keyframes zoom-in-zoom-out {
@@ -117,15 +99,4 @@ img{
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-@keyframes fadeUp {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50px);
-    }
 }
