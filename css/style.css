@@ -47,7 +47,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(55,55,255);
     background: linear-gradient(90deg, rgba(55,55,255,1) 0%, rgba(0,212,255,1) 50%, rgba(55,55,255,1) 100%);
     flex-direction: column;
     height: 100vh;

@@ -5,6 +5,8 @@ const $$ = selector => document.querySelectorAll(selector);
 // VARIABLES
 let puntos = 0;
 let valorCLick = 1;
+let colores = ["#ff1605","#3cff00","#00f2ff","#fbff00"];
+let posColores = 0;
 
 // ELEMENTOS
 const $galleta = $('#galleta');
@@ -18,7 +20,10 @@ $galleta.addEventListener('click', puntuar);
 
 // FUNCIONES
 function puntuar(event){
-
+    if(posColores > 3) posColores = 0;
+    $body.style.background = colores[posColores];
+    posColores++;
+    
     const x = event.pageX; // Coordenada X del clic
     const y = event.pageY; // Coordenada Y del clic
     // Actualiza el puntaje 
