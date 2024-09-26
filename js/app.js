@@ -6,6 +6,7 @@ const $$ = selector => document.querySelectorAll(selector);
 let puntos = 0;
 let valorCLick = 1;
 let colores = ["#ff1605","#3cff00","#00f2ff","#fbff00"];
+let colores1 = ["#3cff00","#00f2ff","#fbff00","#ff1605"];
 let posColores = 0;
 
 // ELEMENTOS
@@ -15,6 +16,8 @@ const $galletaClick = $('#galletaClick');
 const $rayos = $('#bgRayos');
 const $body = $('#body');
 const $caeGalleta = $('#galletacae');
+const $puntos = $('#puntos');
+const $titulo = $('#titulo');
 
 // EVENTOS
 $galleta.addEventListener('click', puntuar);
@@ -23,14 +26,14 @@ $galleta.addEventListener('click', puntuar);
 function puntuar(event){
     if(posColores > 3) posColores = 0;
     $body.style.background = colores[posColores];
+    $titulo.style.color = colores1[posColores];
     posColores++;
 
     const x = event.pageX; // Coordenada X del clic
     const y = event.pageY; // Coordenada Y del clic
     // Actualiza el puntaje 
     puntos += valorCLick; //Habrá que crear en un futuro una funcion
-
-    
+    $puntos.innerHTML = `<p>${puntos}</p>`;
     let destello = document.createElement('div');
     destello.classList.add('flash');
     $body.appendChild(destello);
@@ -40,7 +43,8 @@ function puntuar(event){
     // $destello.classList.add('flash');
     $galleta.classList.remove('shake');
     $galleta.classList.add('shake');
-    $galleta.classList.remove('pump1');
+    $titulo.classList.remove('shake');
+    $titulo.classList.add('shake');
     $galleta.classList.add('pump1');
     $galletaClick.classList.remove('shake');
     $galletaClick.classList.add('shake');
@@ -48,11 +52,15 @@ function puntuar(event){
     setTimeout(function() {
         $galleta.classList.remove('shake');
         $galletaClick.classList.remove('shake');
+        $titulo.classList.remove('shake');
         $rayos.classList.remove('shake');
         destello.classList.remove('flash');
         $galleta.classList.remove('pump1');
         $galleta.classList.remove('pump2');
     }, 400);
+    setTimeout(function() {
+        destello.classList.remove('flash');
+    }, 300);
 
     // Creo el div
     let nuevoP = document.createElement('div');
@@ -74,13 +82,18 @@ function puntuar(event){
 }
 
 function caeGalleta(){
-    let max = 0;
+    let max = 1920;
     screen.width = max;
+    console.log(max);
 
     let posCaida = Math.random() * (max - 0) + 0;
     let nuevoCae = document.createElement('div');
-    nuevoCae.innerHTML = `<img id="galletacae" src="img/EAG_Logo.png">`;
+    console.log(posCaida);
+    nuevoCae.innerHTML = `<img id="galletacae" style="width: 10%; max-width: 100%;" src="img/EAG_Logo.png">`;
     nuevoCae.classList.add('caenGalletas');
-    $caeGalleta.style.right = posCaida+"px";
+    nuevoCae.style.right = -posCaida+"px";
     $body.appendChild(nuevoCae);
+    setTimeout(function(){
+        $body.removeChild(nuevoCae);
+    }, 1000);
 }
