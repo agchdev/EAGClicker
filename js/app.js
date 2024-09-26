@@ -8,6 +8,12 @@ let valorCLick = 1;
 let colores = ["#ff1605","#3cff00","#00f2ff","#fbff00"];
 let colores1 = ["#3cff00","#00f2ff","#fbff00","#ff1605"];
 let posColores = 0;
+let pClick = 100;
+let pCerve = 200;
+let pMonster = 500;
+let pCoca = 200;
+let pVape = 200;
+let pPorro = 500;
 
 // ELEMENTOS
 const $galleta = $('#galleta');
@@ -18,9 +24,21 @@ const $body = $('#body');
 const $caeGalleta = $('#galletacae');
 const $puntos = $('#puntos');
 const $titulo = $('#titulo');
+const $precioClick = $('#precioClick');
+const $precioCerveza = $('#precioCerveza');
+const $precioMonster = $('#precioMonster');
+const $precioCoca = $('#precioCoca');
+const $precioVape = $('precioVape');
+const $precioPorro = $('#precioPorro');
 
 // EVENTOS
 $galleta.addEventListener('click', puntuar);
+$precioClick.addEventListener('click', clickear);
+$precioCerveza.addEventListener('click', beberCerveza);
+$precioMonster.addEventListener('click', beberMonster);
+$precioPorro.addEventListener('click', fumar);
+$precioCoca.addEventListener('click', esnifar);
+$precioVape.addEventListener('click', vapear);
 
 // FUNCIONES
 function puntuar(event){
@@ -98,3 +116,91 @@ function caeGalleta(){
         $body.removeChild(nuevoCae);
     }, 1000);
 }
+
+function clickear(){
+    if (puntos>pClick) {
+        console.log("No tienes dinero!");
+        valorCLick*2;
+        pClick*2;
+    }else{
+        let mensajePobre = document.createElement('div');
+        mensajePobre.innerHTML = `<p class="pPobre">POBRE</p>`;
+        mensajePobre.classList.add('pobre')
+        $body.appendChild(mensajePobre);
+
+        setTimeout(function(){
+            $body.removeChild(mensajePobre);
+        }, 500);
+    }
+}
+
+function beberCerveza(){
+    if (puntos>pCerve) {
+        console.log("No tienes dinero!");
+    }else{
+        let mensajePobre = document.createElement('div');
+        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        $body.appendChild(mensajePobre);
+
+        setTimeout(function(){
+            $body.removeChild(mensajePobre);
+        }, 500);
+    }
+}
+
+function beberMonster(){
+    if (puntos>pMonster) {
+        console.log("No tienes dinero!");
+    }else{
+        let mensajePobre = document.createElement('div');
+        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        $body.appendChild(mensajePobre);
+
+        setTimeout(function(){
+            $body.removeChild(mensajePobre);
+        }, 500);
+    }
+}
+
+function esnifar(){
+    if (puntos>pCoca) {
+        console.log("No tienes dinero!");
+    }else{
+        let mensajePobre = document.createElement('div');
+        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        $body.appendChild(mensajePobre);
+
+        setTimeout(function(){
+            $body.removeChild(mensajePobre);
+        }, 500);
+    }
+}
+
+function fumar(){
+    if (puntos>pPorro) {
+        console.log("No tienes dinero!");
+    }else{
+        let mensajePobre = document.createElement('div');
+        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        $body.appendChild(mensajePobre);
+
+        setTimeout(function(){
+            $body.removeChild(mensajePobre);
+        }, 500);
+    }
+}
+
+function vapear(){
+    if (puntos>pVape) {
+        console.log("No tienes dinero!");
+    }else{
+        let mensajePobre = document.createElement('div');
+        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        $body.appendChild(mensajePobre);
+
+        setTimeout(function(){
+            $body.removeChild(mensajePobre);
+        }, 500);
+    }
+}
+// PREDETERMINADOS

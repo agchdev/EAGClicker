@@ -223,6 +223,26 @@ h1{
   font-size: 4rem;
 }
 
+.pobre{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 30%;
+  left: 17%;
+  z-index: 50;
+}
+
+.pPobre{
+  font-weight: bolder;
+  -webkit-background-clip: text;
+  text-shadow: 30px 0 black, -30px 0 black, 0 30px black, 0 -5px black,
+              30px 30px black, -30px -30px black, 30px -30px black, -30px 30px black;
+  font-size: 25rem;
+  color: red;
+  filter: drop-shadow(0px 0px 100px red);
+  animation: flash2 3s alternate;
+}
+
 /* ANIMACIONES */
 
 @keyframes zoom-in-zoom-out {
@@ -289,6 +309,14 @@ h1{
 @keyframes flash {
   0% {
     opacity: 60%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+@keyframes flash2 {
+  50% {
+    opacity: 100%;
   }
   100% {
     opacity: 0%;
