@@ -23,7 +23,7 @@ function puntuar(event){
     if(posColores > 3) posColores = 0;
     $body.style.background = colores[posColores];
     posColores++;
-    
+
     const x = event.pageX; // Coordenada X del clic
     const y = event.pageY; // Coordenada Y del clic
     // Actualiza el puntaje 
@@ -39,6 +39,8 @@ function puntuar(event){
     // $destello.classList.add('flash');
     $galleta.classList.remove('shake');
     $galleta.classList.add('shake');
+    $galleta.classList.remove('pump1');
+    $galleta.classList.add('pump1');
     $galletaClick.classList.remove('shake');
     $galletaClick.classList.add('shake');
     $rayos.classList.add('shake');
@@ -47,6 +49,8 @@ function puntuar(event){
         $galletaClick.classList.remove('shake');
         $rayos.classList.remove('shake');
         destello.classList.remove('flash');
+        $galleta.classList.remove('pump1');
+        $galleta.classList.remove('pump2');
     }, 400);
 
     // Creo el div

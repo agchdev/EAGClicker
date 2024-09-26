@@ -113,6 +113,14 @@ img{
     animation: shake .4s ease-in-out alternate;
 }
 
+.pump1{
+  animation: pump1 .2s ease-in-out alternate;
+}
+
+.pump2{
+  animation: pump2 .2s ease-in-out alternate;
+}
+
 #galletaClick{
     position: fixed;
     z-index: 5;
@@ -193,5 +201,29 @@ img{
   100% {
     opacity: 0;
     transform: translate(-50%, -1000px);
+  }
+}
+
+@keyframes pump1 {
+  0%{
+    scale: 1.5;
+    transform: rotateZ(45deg);
+  }
+
+  100%{
+    scale: 1;
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes pump2 {
+  0%{
+    scale: 1.5;
+    transform: rotateZ(-45deg);
+  }
+
+  100%{
+    scale: 1;
+    transform: rotateZ(0deg);
   }
 }
