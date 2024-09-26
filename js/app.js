@@ -8,7 +8,7 @@ let valorCLick = 1;
 let colores = ["#ff1605","#3cff00","#00f2ff","#fbff00"];
 let colores1 = ["#3cff00","#00f2ff","#fbff00","#ff1605"];
 let posColores = 0;
-let pClick = 100;
+let pClick = 5;
 let pCerve = 200;
 let pMonster = 500;
 let pCoca = 200;
@@ -28,18 +28,26 @@ const $precioClick = $('#precioClick');
 const $precioCerveza = $('#precioCerveza');
 const $precioMonster = $('#precioMonster');
 const $precioCoca = $('#precioCoca');
-const $precioVape = $('precioVape');
+const $precioVape = $('#precioVape');
 const $precioPorro = $('#precioPorro');
 
+console.log($precioVape);
 // EVENTOS
-$galleta.addEventListener('click', puntuar);
-$precioClick.addEventListener('click', clickear);
-$precioCerveza.addEventListener('click', beberCerveza);
-$precioMonster.addEventListener('click', beberMonster);
-$precioPorro.addEventListener('click', fumar);
-$precioCoca.addEventListener('click', esnifar);
-$precioVape.addEventListener('click', vapear);
-
+document.addEventListener('DOMContentLoaded', function() {
+    $precioClick.innerHTML=`CLICK x2 [${pClick}]`;
+    $precioCerveza.innerHTML=`CERVEZA DEL BAR [${pCerve}]`;
+    $precioCoca.innerHTML=`COCAINA [${pCoca}]`;
+    $precioMonster.innerHTML=`MONSTER JAMÓN [${pMonster}]`;
+    $precioPorro.innerHTML=`VERDE [${pPorro}]`;
+    $precioVape.innerHTML=`VAPER [${pVape}]`;
+    $galleta.addEventListener('click', puntuar);
+    $precioClick.addEventListener('click', clickear);
+    $precioCerveza.addEventListener('click', beberCerveza);
+    $precioMonster.addEventListener('click', beberMonster);
+    $precioPorro.addEventListener('click', fumar);
+    $precioCoca.addEventListener('click', esnifar);
+    $precioVape.addEventListener('click', vapear);
+});
 // FUNCIONES
 function puntuar(event){
     if(posColores > 3) posColores = 0;
@@ -103,11 +111,9 @@ function puntuar(event){
 function caeGalleta(){
     let max = 1920;
     screen.width = max;
-    console.log(max);
 
     let posCaida = Math.random() * (max - 0) + 0;
     let nuevoCae = document.createElement('div');
-    console.log(posCaida);
     nuevoCae.innerHTML = `<img id="galletacae" style="width: 10%; max-width: 100%;" src="img/EAG_Logo.png">`;
     nuevoCae.classList.add('caenGalletas');
     nuevoCae.style.right = -posCaida+"px";
@@ -118,10 +124,12 @@ function caeGalleta(){
 }
 
 function clickear(){
+    console.log(puntos+"  "+pClick);
     if (puntos>pClick) {
         console.log("No tienes dinero!");
-        valorCLick*2;
-        pClick*2;
+        valorCLick*=2;
+        puntos-=pClick;
+        pClick*=3;
     }else{
         let mensajePobre = document.createElement('div');
         mensajePobre.innerHTML = `<p class="pPobre">POBRE</p>`;
@@ -132,9 +140,17 @@ function clickear(){
             $body.removeChild(mensajePobre);
         }, 500);
     }
+    
+    $precioClick.innerHTML=`CLICK x2 [${pClick}]`;
+    
+    // Creo el div
+    let nuevoP = document.createElement('div');
+    // Añado el contenido
+    nuevoP.innerHTML = `<p>+${valorCLick}</p>`;
 }
 
 function beberCerveza(){
+    console.log(puntos+"  "+pClick);
     if (puntos>pCerve) {
         console.log("No tienes dinero!");
     }else{
@@ -192,7 +208,6 @@ function fumar(){
 
 function vapear(){
     if (puntos>pVape) {
-        console.log("No tienes dinero!");
     }else{
         let mensajePobre = document.createElement('div');
         mensajePobre.innerHTML = `<p>POBRE</p>`;
@@ -204,3 +219,4 @@ function vapear(){
     }
 }
 // PREDETERMINADOS
+
