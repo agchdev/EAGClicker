@@ -52,26 +52,44 @@ body{
 }
 main{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
 }
 .button {
   min-height:100%;
+  border-radius: 1rem;
+  margin-bottom: .9rem;
+  font-weight: bolder;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  text-shadow: 5px 0 black, -5px 0 black, 0 5px black, 0 -5px black,
+              4px 4px black, -4px -4px black, 4px -4px black, -4px 4px black;
+  color: white;
+  padding: 1rem;
+  border: 5px solid black;
+  box-shadow: 5px 5px 0 black;
   background: 
    linear-gradient(rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%) 
    0 0/100% 200%;
    animation: a 2s linear infinite;
 }
 
-@keyframes a {
-  to {background-position:0 -200%}
-}
 .mej{
   width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
-.mej{
 
+.skin{
+
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 #galleta{
   display: flex;
@@ -107,6 +125,7 @@ h1{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 50%;
 }
 
 .flash{
@@ -129,6 +148,10 @@ h1{
     -moz-user-select: none;   /* Firefox */
     -webkit-user-select: none; /* Safari y Chrome */
     -ms-user-select: none;    /* Internet Explorer/Edge */
+}
+.borde{
+  
+  filter: drop-shadow(3px 3px 0 black);
 }
 
 .shake{
@@ -315,4 +338,8 @@ h1{
     scale: 1;
     transform: rotateZ(0deg);
   }
+}
+
+@keyframes a {
+  to {background-position:0 -200%}
 }
