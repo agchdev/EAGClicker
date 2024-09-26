@@ -41,25 +41,26 @@ function puntuar(event){
     // Animación shake
     // $destello.classList.remove('flash');
     // $destello.classList.add('flash');
-    $galleta.classList.remove('shake');
+    // $galleta.classList.remove('shake');
     $galleta.classList.add('shake');
-    $titulo.classList.remove('shake');
+    // $puntos.classList.remove('shake');
+    $puntos.classList.add('shake');
+    // $titulo.classList.remove('shake');
     $titulo.classList.add('shake');
-    $galleta.classList.add('pump1');
-    $galletaClick.classList.remove('shake');
+    // $galletaClick.classList.remove('shake');
     $galletaClick.classList.add('shake');
-    $rayos.classList.add('shake');
+    $rayos.classList.add('shake1');
     setTimeout(function() {
         $galleta.classList.remove('shake');
         $galletaClick.classList.remove('shake');
+        $puntos.classList.remove('shake');
         $titulo.classList.remove('shake');
-        $rayos.classList.remove('shake');
+        $rayos.classList.remove('shake1');
         destello.classList.remove('flash');
-        $galleta.classList.remove('pump1');
-        $galleta.classList.remove('pump2');
     }, 400);
     setTimeout(function() {
         destello.classList.remove('flash');
+        destello.remove();
     }, 300);
 
     // Creo el div
