@@ -14,6 +14,7 @@ const $imagen = $('#imagen');
 const $galletaClick = $('#galletaClick');
 const $rayos = $('#bgRayos');
 const $body = $('#body');
+const $caeGalleta = $('#galletacae');
 
 // EVENTOS
 $galleta.addEventListener('click', puntuar);
@@ -65,8 +66,21 @@ function puntuar(event){
     $galletaClick.style.left = `${x}px`;
     $galletaClick.style.top = `${y}px`;
 
-
     setTimeout(function(){
         $galletaClick.removeChild(nuevoP);
     }, 2000);
+
+    caeGalleta();
+}
+
+function caeGalleta(){
+    let max = 0;
+    screen.width = max;
+
+    let posCaida = Math.random() * (max - 0) + 0;
+    let nuevoCae = document.createElement('div');
+    nuevoCae.innerHTML = `<img id="galletacae" src="img/EAG_Logo.png">`;
+    nuevoCae.classList.add('caenGalletas');
+    $caeGalleta.style.right = posCaida+"px";
+    $body.appendChild(nuevoCae);
 }

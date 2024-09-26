@@ -96,7 +96,7 @@ h1{
   pointer-events: none
 }
 
-img{
+.imgStyle{
     max-width: 100%;
     width: 80%;
     animation: zoom-in-zoom-out 3s ease-in-out infinite;
@@ -142,6 +142,21 @@ img{
     -moz-user-select: none;   /* Firefox */
     -webkit-user-select: none; /* Safari y Chrome */
     -ms-user-select: none;    /* Internet Explorer/Edge */
+}
+
+.caenGalletas{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#galletacae{
+  position: fixed;
+  right: 100px;
+  animation: llueve 1s ease-in-out alternate;
+  pointer-events: none;
 }
 
 /* ANIMACIONES */
@@ -201,6 +216,17 @@ img{
   100% {
     opacity: 0;
     transform: translate(-50%, -1000px);
+  }
+}
+
+@keyframes llueve {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 1000px);
   }
 }
 
