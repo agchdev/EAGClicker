@@ -112,22 +112,26 @@ function puntuar(event){
 
 function caeGalleta(){
     let max = 1920;
+    let valorClickparaDibujo = 0;
     screen.width = max;
-    setTimeout(function(){
-        for (let i = 0; i < valorCLick; i++) {
-            let posCaidaX = Math.random() * (max - 0) + 0;
-            let posCaidaY = Math.random() * (max - 0) + 0;
-            let nuevoCae = document.createElement('div');
-            nuevoCae.innerHTML = `<img id="galletacae" style="width: 10%; max-width: 100%;" src="img/EAG_Logo.png">`;
-            nuevoCae.classList.add('caenGalletas');
-            nuevoCae.style.right = -posCaidaY+"px";
-            nuevoCae.style.top = -posCaidaX+"px";
-            $body.appendChild(nuevoCae);
-            setTimeout(function(){
-                $body.removeChild(nuevoCae);
-            }, 1000);
-        }
-    },100);
+    if (valorCLick>50) {
+        valorClickparaDibujo =50;
+    }else{
+        valorClickparaDibujo = valorCLick;
+    }
+    for (let i = 0; i < valorClickparaDibujo; i++) {
+        let posCaidaX = Math.random() * (max - 0) + 0;
+        let posCaidaY = Math.random() * (max - 0) + 0;
+        let nuevoCae = document.createElement('div');
+        nuevoCae.innerHTML = `<img id="galletacae" style="width: 10%; max-width: 100%;" src="img/EAG_Logo.png">`;
+        nuevoCae.classList.add('caenGalletas');
+        nuevoCae.style.right = -posCaidaY+"px";
+        nuevoCae.style.top = -posCaidaX+"px";
+        $body.appendChild(nuevoCae);
+        setTimeout(function(){
+            $body.removeChild(nuevoCae);
+        }, 1000);
+    }
     
 }
 
