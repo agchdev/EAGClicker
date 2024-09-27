@@ -4,16 +4,18 @@ const $$ = selector => document.querySelectorAll(selector);
 
 // VARIABLES
 let puntos = 0;
-let valorCLick = 1;
+let valorCLick = 100;
 let colores = ["#ff1605","#3cff00","#00f2ff","#fbff00"];
 let colores1 = ["#3cff00","#00f2ff","#fbff00","#ff1605"];
 let posColores = 0;
-let pClick = 5;
+let pClick = 100;
 let pCerve = 200;
-let pMonster = 500;
+let pMonster = 50000;
 let pCoca = 200;
 let pVape = 200;
 let pPorro = 500;
+
+let mejoraCerve = 1;
 
 // ELEMENTOS
 const $galleta = $('#galleta');
@@ -111,25 +113,30 @@ function puntuar(event){
 function caeGalleta(){
     let max = 1920;
     screen.width = max;
-
-    let posCaida = Math.random() * (max - 0) + 0;
-    let nuevoCae = document.createElement('div');
-    nuevoCae.innerHTML = `<img id="galletacae" style="width: 10%; max-width: 100%;" src="img/EAG_Logo.png">`;
-    nuevoCae.classList.add('caenGalletas');
-    nuevoCae.style.right = -posCaida+"px";
-    $body.appendChild(nuevoCae);
     setTimeout(function(){
-        $body.removeChild(nuevoCae);
-    }, 1000);
+        for (let i = 0; i < valorCLick; i++) {
+            let posCaidaX = Math.random() * (max - 0) + 0;
+            let posCaidaY = Math.random() * (max - 0) + 0;
+            let nuevoCae = document.createElement('div');
+            nuevoCae.innerHTML = `<img id="galletacae" style="width: 10%; max-width: 100%;" src="img/EAG_Logo.png">`;
+            nuevoCae.classList.add('caenGalletas');
+            nuevoCae.style.right = -posCaidaY+"px";
+            nuevoCae.style.top = -posCaidaX+"px";
+            $body.appendChild(nuevoCae);
+            setTimeout(function(){
+                $body.removeChild(nuevoCae);
+            }, 1000);
+        }
+    },100);
+    
 }
 
 function clickear(){
     console.log(puntos+"  "+pClick);
-    if (puntos>pClick) {
-        console.log("No tienes dinero!");
+    if (puntos>=pClick) {
         valorCLick*=2;
         puntos-=pClick;
-        pClick*=3;
+        pClick*=4;
     }else{
         let mensajePobre = document.createElement('div');
         mensajePobre.innerHTML = `<p class="pPobre">POBRE</p>`;
@@ -150,18 +157,30 @@ function clickear(){
 }
 
 function beberCerveza(){
-    console.log(puntos+"  "+pClick);
-    if (puntos>pCerve) {
+    if (puntos>=pCerve) {
+        pCerve*=4;
+        puntosAuto();
+        puntos-=pClick;
         console.log("No tienes dinero!");
     }else{
         let mensajePobre = document.createElement('div');
-        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        mensajePobre.innerHTML = `<p class="pPobre">POBRE</p>`;
+        mensajePobre.classList.add('pobre')
         $body.appendChild(mensajePobre);
 
         setTimeout(function(){
             $body.removeChild(mensajePobre);
         }, 500);
     }
+
+    $precioCerveza.innerHTML=`CERVEZA DEL BAR [${pCerve}]`;
+
+    // Creo el div
+    let nuevoP = document.createElement('div');
+    // Añado el contenido
+    nuevoP.innerHTML = `<p>+${valorCLick}</p>`;
+
+    $puntos.innerHTML = `<p>${puntos}</p>`;
 }
 
 function beberMonster(){
@@ -169,7 +188,8 @@ function beberMonster(){
         console.log("No tienes dinero!");
     }else{
         let mensajePobre = document.createElement('div');
-        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        mensajePobre.innerHTML = `<p class="pPobre">POBRE</p>`;
+        mensajePobre.classList.add('pobre')
         $body.appendChild(mensajePobre);
 
         setTimeout(function(){
@@ -183,7 +203,8 @@ function esnifar(){
         console.log("No tienes dinero!");
     }else{
         let mensajePobre = document.createElement('div');
-        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        mensajePobre.innerHTML = `<p class="pPobre">POBRE</p>`;
+        mensajePobre.classList.add('pobre')
         $body.appendChild(mensajePobre);
 
         setTimeout(function(){
@@ -197,7 +218,8 @@ function fumar(){
         console.log("No tienes dinero!");
     }else{
         let mensajePobre = document.createElement('div');
-        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        mensajePobre.innerHTML = `<p class="pPobre">POBRE</p>`;
+        mensajePobre.classList.add('pobre')
         $body.appendChild(mensajePobre);
 
         setTimeout(function(){
@@ -210,13 +232,27 @@ function vapear(){
     if (puntos>pVape) {
     }else{
         let mensajePobre = document.createElement('div');
-        mensajePobre.innerHTML = `<p>POBRE</p>`;
+        mensajePobre.innerHTML = `<p class="pPobre">POBRE</p>`;
+        mensajePobre.classList.add('pobre')
         $body.appendChild(mensajePobre);
 
         setTimeout(function(){
             $body.removeChild(mensajePobre);
         }, 500);
     }
+}
+
+
+
+function puntosAuto() {
+    mejoraCerve++;
+    nIntervId = setInterval(sumarPuntos, 1000);
+}
+
+function sumarPuntos() {
+    puntos+=mejoraCerve;
+    $puntos.innerHTML = `<p>${puntos}</p>`;
+    console.log(puntos);
 }
 // PREDETERMINADOS
 
