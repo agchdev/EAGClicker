@@ -1,10 +1,11 @@
-**Eag Clicker**
+# **Eag Clicker**
+**Juega ahora mismo desde aquí!** [EAGCLICKER](https://agchdev.github.io/EAGClicker.github.io/)
 
-¡Bienvenido a Eag Clicker! 🚀
+## ¡Bienvenido a Eag Clicker! 🚀
 
 Eag Clicker es un juego incremental inspirado en el famoso Cookie Clicker, pero con un toque especial. En lugar de hacer clic en galletas, aquí el objetivo es hacer clic en el símbolo del águila (🦅) para acumular puntos y desbloquear mejoras que te ayudarán a aumentar tu producción de clics de manera exponencial.
 
-**Características:**
+## **Características:**
 
 🌟 Clics Ilimitados: Haz clic en el águila para ganar puntos. ¡No hay límite de cuántas veces puedes hacer clic!
 
@@ -16,11 +17,11 @@ Eag Clicker es un juego incremental inspirado en el famoso Cookie Clicker, pero 
 
 🔧 Diseño Modular: Facilita la expansión del juego con nuevas características y eventos especiales.
 
-**Objetivo:**
+## **Objetivo:**
 
 El objetivo del juego es llegar a niveles de clics masivos, descubrir todas las mejoras disponibles y competir por el mayor número de puntos posible. ¡Sigue haciendo clic para dominar el mundo del Eag Clicker!
 
-**Cómo Jugar:**
+## **Cómo Jugar:**
 
 Haz clic en el águila para ganar puntos.
 Usa los puntos para comprar mejoras y power-ups.
