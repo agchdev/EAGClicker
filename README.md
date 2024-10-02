@@ -1,5 +1,6 @@
 # **Eag Clicker**
 **Juega ahora mismo desde aquí!** [EAGCLICKER](https://agchdev.github.io/EAGClicker.github.io/)
+![image](https://github.com/user-attachments/assets/3a9dae0f-73cd-454f-a265-1020ea4019d7)
 
 ## ¡Bienvenido a Eag Clicker! 🚀
 
