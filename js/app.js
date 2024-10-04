@@ -291,8 +291,11 @@ function monsterEffect(){
     // Añado el contenido
     monsterDiv.innerHTML = `<img class="monster1" src="img/monster.png" alt="">
                             <img class="monster2" src="img/monster.png" alt="">`
+
+    $body.appendChild(monsterDiv);
     setTimeout(function(){
         valorCLick/=10;
+        $body.removeChild(monsterDiv);
     },10000);
 }
 // PREDETERMINADOS
