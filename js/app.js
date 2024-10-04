@@ -4,7 +4,7 @@ const $$ = selector => document.querySelectorAll(selector);
 
 // VARIABLES
 let puntos = 0;
-let valorCLick = 1;
+let valorCLick = 25000;
 let colores = ["#ff1605","#3cff00","#00f2ff","#fbff00"];
 let colores1 = ["#3cff00","#00f2ff","#fbff00","#ff1605"];
 let posColores = 0;
@@ -285,6 +285,12 @@ function sumarPuntos() {
 
 function monsterEffect(){
     valorCLick*=10;
+    // Creo el div
+    let monsterDiv = document.createElement('div');
+
+    // Añado el contenido
+    monsterDiv.innerHTML = `<img class="monster1" src="img/monster.png" alt="">
+                            <img class="monster2" src="img/monster.png" alt="">`
     setTimeout(function(){
         valorCLick/=10;
     },10000);

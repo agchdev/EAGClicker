@@ -243,6 +243,19 @@ h1{
   animation: flash2 3s alternate;
 }
 
+.monster1{
+  animation: rotate 1s linear infinite;
+  position: fixed;
+  top: 20%;
+  left: 70%;
+}
+.monster2{
+  animation: rotate 1s linear infinite;
+  position: fixed;
+  top: 20%;
+  left: 20%;
+}
+
 /* ANIMACIONES */
 
 @keyframes zoom-in-zoom-out {
