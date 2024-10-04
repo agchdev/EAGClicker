@@ -4,7 +4,7 @@ const $$ = selector => document.querySelectorAll(selector);
 
 // VARIABLES
 let puntos = 0;
-let valorCLick = 1;
+let valorCLick = 25000;
 let colores = ["#ff1605","#3cff00","#00f2ff","#fbff00"];
 let colores1 = ["#3cff00","#00f2ff","#fbff00","#ff1605"];
 let posColores = 0;
@@ -107,17 +107,17 @@ function puntuar(event){
         $galletaClick.removeChild(nuevoP);
     }, 2000);
 
-    caeGalleta();
+    caeGalleta(valorCLick);
 }
 
-function caeGalleta(){
+function caeGalleta(valor){
     let max = 1920;
     let valorClickparaDibujo = 0;
     screen.width = max;
-    if (valorCLick>50) {
+    if (valor>50) {
         valorClickparaDibujo =50;
     }else{
-        valorClickparaDibujo = valorCLick;
+        valorClickparaDibujo = valor;
     }
     for (let i = 0; i < valorClickparaDibujo; i++) {
         let posCaidaX = Math.random() * (max - 0) + 0;
@@ -134,6 +134,7 @@ function caeGalleta(){
     }
     
 }
+
 
 function clickear(){
     console.log(puntos+"  "+pClick);
@@ -158,13 +159,15 @@ function clickear(){
     let nuevoP = document.createElement('div');
     // Añado el contenido
     nuevoP.innerHTML = `<p>+${valorCLick}</p>`;
+
+    $puntos.innerHTML = `<p>${puntos}</p>`;
 }
 
 function beberCerveza(){
     if (puntos>=pCerve) {
+        puntos-=pCerve;
         pCerve*=4;
         puntosAuto();
-        puntos-=pClick;
         console.log("No tienes dinero!");
     }else{
         let mensajePobre = document.createElement('div');
@@ -188,8 +191,12 @@ function beberCerveza(){
 }
 
 function beberMonster(){
-    if (puntos>pMonster) {
-        console.log("No tienes dinero!");
+    if (puntos>=pMonster) {
+        if (puntos>=pMonster) {
+            puntos-=pMonster;
+            pMonster*=2;
+            monsterEffect();
+        }
     }else{
         let mensajePobre = document.createElement('div');
         mensajePobre.innerHTML = `<p class="pPobre">POBRE</p>`;
@@ -257,6 +264,30 @@ function sumarPuntos() {
     puntos+=mejoraCerve;
     $puntos.innerHTML = `<p>${puntos}</p>`;
     console.log(puntos);
+    // Creo el div
+    let nuevoPauto = document.createElement('div');
+
+    // Añado el contenido
+    nuevoPauto.innerHTML = `<p>+${mejoraCerve}</p>`;
+    
+
+    // Selecciono el contenedor del div
+    $galletaClick.appendChild(nuevoPauto);
+    $galletaClick.style.left = `50%`;
+    $galletaClick.style.top = `50%`;
+
+    setTimeout(function(){
+        $galletaClick.removeChild(nuevoPauto);
+    }, 2000);
+
+    caeGalleta(mejoraCerve);
+}
+
+function monsterEffect(){
+    valorCLick*=10;
+    setTimeout(function(){
+        valorCLick/=10;
+    },10000);
 }
 // PREDETERMINADOS
 
