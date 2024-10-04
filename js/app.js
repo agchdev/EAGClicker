@@ -4,7 +4,7 @@ const $$ = selector => document.querySelectorAll(selector);
 
 // VARIABLES
 let puntos = 0;
-let valorCLick = 25000;
+let valorCLick = 1;
 let colores = ["#ff1605","#3cff00","#00f2ff","#fbff00"];
 let colores1 = ["#3cff00","#00f2ff","#fbff00","#ff1605"];
 let posColores = 0;
